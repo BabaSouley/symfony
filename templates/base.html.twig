@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header mr-1 ">
+    <a href="#"><img src="https://via.placeholder.com/300x150" ></a>
+      <!-- <a class="navbar-brand" href="#"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav  center-block">
+        <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Nos studios</a></li>
+        <li><a href="#">Qui sommes nous</a></li>
+        <li><a href="#">Tarifs</a></li>
+        <li><a href="#">Contacts/FAQ</a></li>
+        <li><a href="#">Mentions légales</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+    <body>
+    <!-- Just an image -->
+    <div class="center-block">
+    <h1>TEST</h1>
+    </div>
+        {% block body %}{% endblock %}
+    </body>
+</html>
