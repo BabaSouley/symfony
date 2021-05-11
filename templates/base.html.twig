@@ -16,6 +16,7 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+    {% set route_name = app.request.attributes.get('_route') %}
 
 <nav class="navbar navbar-default" >
   <div class="container-fluid">
@@ -28,17 +29,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav  center-block">
-        <li class="active"><a href="/">Accueil <span class="sr-only">(current)</span></a></li>
-        <li><a href="/studio">Nos studios</a></li>
-        <li><a href="/about">Qui sommes nous</a></li>
-        <li><a href="/tarif">Tarifs</a></li>
-        <li><a href="/contact">Contacts/FAQ</a></li>
+        <li{% if route_name == "home" %} class="active" {% else %} class="" {% endif %} ><a href="/">Accueil </a></li>
+        <li{% if route_name == "studio" %} class="active" {% else %} class="" {% endif %} ><a href="/studio">Nos studios</a></li>
+        <li{% if route_name == "about" %} class="active" {% else %} class="" {% endif %} ><a href="/about">Qui sommes nous</a></li>
+        <li{% if route_name == "tarif" %} class="active" {% else %} class="" {% endif %} ><a href="/tarif">Tarifs</a></li>
+        <li{% if route_name == "contact" %} class="active" {% else %} class="" {% endif %} ><a href="/contact">Contacts/FAQ</a></li>
         <li><a href="#">Mentions légales</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 
     <body>
     <!-- Just an image -->
