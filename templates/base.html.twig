@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+  <link href="{{ asset('assets/css/header.css')}}" rel="stylesheet"> 
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -16,34 +17,35 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    {% set route_name = app.request.attributes.get('_route') %}
-
+{% set route_name = app.request.attributes.get('_route') %}
 <nav class="navbar navbar-default" >
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header mr-1 ">
-    <a href="#"><img src="https://via.placeholder.com/300x150" ></a>
+    <a href="#"><img src="{{ asset('assets/img/logo.png')}}" ></a>
       <!-- <a class="navbar-brand" href="#"></a>-->
     </div>
-
+    <div class="d-flex p-2">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav  center-block">
-        <li{% if route_name == "home" %} class="active" {% else %} class="" {% endif %} ><a href="/">Accueil </a></li>
-        <li{% if route_name == "studio" %} class="active" {% else %} class="" {% endif %} ><a href="/studio">Nos studios</a></li>
-        <li{% if route_name == "about" %} class="active" {% else %} class="" {% endif %} ><a href="/about">Qui sommes nous</a></li>
-        <li{% if route_name == "tarif" %} class="active" {% else %} class="" {% endif %} ><a href="/tarif">Tarifs</a></li>
-        <li{% if route_name == "contact" %} class="active" {% else %} class="" {% endif %} ><a href="/contact">Contacts/FAQ</a></li>
+      <ul class="nav navbar-nav  center-block align-self-center">
+        <li {% if route_name == "home" %} class="active" {% else %} class="" {% endif %}> <a href="/">Accueil <span class="sr-only">(current)</span></a></li>
+        <li {% if route_name == "studio" %} class="active" {% else %} class="" {% endif %} ><a href="/studio">Nos studios</a></li>
+        <li {% if route_name == "about" %} class="active" {% else %} class="" {% endif %} ><a href="/about">Qui sommes nous</a></li>
+        <li {% if route_name == "tarif" %} class="active" {% else %} class="" {% endif %} ><a href="/tarif">Tarifs</a></li>
+        <li {% if route_name == "contact" %} class="active" {% else %} class="" {% endif %} ><a href="/contact">Contacts/FAQ</a></li>
         <li><a href="#">Mentions légales</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+    </div>
   </div><!-- /.container-fluid -->
 </nav>
+{{route_name}}
 
     <body>
     <!-- Just an image -->
     <div class="center-block">
     </div>
-        {% block body %}{% endblock %}
-    </body>
+        <h1>{{route_name|upper}}</h1>
+        dy>
 </html>
